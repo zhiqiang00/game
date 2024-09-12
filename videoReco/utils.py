@@ -10,8 +10,7 @@ def calculate_mrr(df_sorted, df_clicked):
         # 检查点击的视频是否在推荐列表中，并且计算其排名
         if row['vid'] in recommendations['vid'].values:
             rank = recommendations[recommendations['vid'] == row['vid']]['vid'].index[0] + 1
-
-    mrr_score += 1 / rank
+            mrr_score += 1 / rank
     # 计算平均MRR
     return mrr_score / total_queries if total_queries > 0 else 0
 # 计算MRR
