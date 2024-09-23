@@ -1,5 +1,7 @@
 import numpy as np
 import pandas as pd
+import os
+import zipfile
 
 def calculate_mrr(df_sorted, df_clicked):
     mrr_score = 0.0
@@ -16,3 +18,7 @@ def calculate_mrr(df_sorted, df_clicked):
 # 计算MRR
 # mrr = calculate_mrr(df_recommendations, df_clicked)
 # print(f"MRR: {mrr}")
+
+def save_zip_file(file_name, file_name_zip):
+    with zipfile.ZipFile(file_name_zip, 'w') as z:
+        z.write(file_name, os.path.basename(file_name))
