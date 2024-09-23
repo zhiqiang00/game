@@ -1,3 +1,4 @@
+import time
 import numpy as np
 import pandas as pd
 import os
@@ -19,6 +20,10 @@ def calculate_mrr(df_sorted, df_clicked):
 # mrr = calculate_mrr(df_recommendations, df_clicked)
 # print(f"MRR: {mrr}")
 
-def save_zip_file(file_name, file_name_zip):
+def save_zip_file(submission):
+    file_name = f"./data/submit_example_A{time.strftime('%Y%m%d%H%M', time.localtime())}.csv"
+    submission.to_csv(f"./data/submit_example_A{time.strftime('%Y%m%d%H%M', time.localtime())}.csv",index=False, encoding='utf-8')
+    file_name_zip = f"./data/submit_example_A{time.strftime('%Y%m%d%H%M', time.localtime())}.csv.zip"
+
     with zipfile.ZipFile(file_name_zip, 'w') as z:
         z.write(file_name, os.path.basename(file_name))
