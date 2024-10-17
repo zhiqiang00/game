@@ -45,7 +45,6 @@ class DeepFM(BaseModel):
         super(DeepFM, self).__init__(linear_feature_columns, dnn_feature_columns, l2_reg_linear=l2_reg_linear,
                                      l2_reg_embedding=l2_reg_embedding, init_std=init_std, seed=seed, task=task,
                                      device=device, gpus=gpus)
-        print(111)
 
         self.use_fm = use_fm
         self.use_dnn = len(dnn_feature_columns) > 0 and len(
