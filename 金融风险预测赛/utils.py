@@ -54,7 +54,7 @@ def find_outliers_by_3segama(data, fea):
     return data
 
 
-def cv_model(clf, train_x, train_y, test_x, clf_name, is_mms):
+def cv_model(clf, train_x, train_y, test_x, clf_name, is_mms, lr):
     folds = 5
     seed = 2020
     kf = KFold(n_splits=folds, shuffle=True, random_state=seed)
@@ -106,7 +106,7 @@ def cv_model(clf, train_x, train_y, test_x, clf_name, is_mms):
                 'feature_fraction': 0.8,
                 'bagging_fraction': 1.0,
                 'bagging_freq': 33,
-                'learning_rate': 0.1,
+                'learning_rate': lr,
                 'seed': 2020,
                 'nthread': 28,
                 'n_jobs':24,
